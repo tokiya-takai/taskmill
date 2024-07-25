@@ -1,0 +1,14 @@
+services:
+    mill-frontend:
+        build: ./frontend
+        volumes:
+            - ./frontend/src:/var/www/html/src
+            - ./frontend/node_modules:/var/www/html/node_modules
+        environment:
+            TZ: Japan
+            VIRTUAL_HOST: taskmill.test
+
+networks:
+  default:
+    external:
+      name: project_network
